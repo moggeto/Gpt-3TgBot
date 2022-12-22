@@ -27,8 +27,9 @@ def handle_message(message):
     )
 
     bot.send_message(chat_id=message.from_user.id, text=response['choices'][0]['text'])
-    print(f'вопрос - {message.text}')
-    print(f"ответ - {response['choices'][0]['text']}")
+    with open('log.txt', 'a') as w:
+        w.write(f'Вопрос -\n\n{message.text}\n\n'
+                f"Ответ - {response['choices'][0]['text']}")
 
 bot.polling()
 
