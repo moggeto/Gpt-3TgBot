@@ -1,9 +1,11 @@
 import os
 import telebot
 import openai
+from dotenv import load_dotenv, find_dotenv
 
+load_dotenv(find_dotenv('.env'))
 openai.api_key = os.getenv("OPENAI_API_KEY")
-bot = telebot.TeleBot('5896976499:AAEX8j7zE_Jta8YZzzuPKeUQCwDcvrzkCrk')
+bot = telebot.TeleBot(os.getenv('BOT_TOKEN'))
 
 
 @bot.message_handler(commands=['help', 'start'])
